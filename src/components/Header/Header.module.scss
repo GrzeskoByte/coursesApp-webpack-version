@@ -1,0 +1,26 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: #ddd;
+  border-bottom: 2px solid #000;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+  &__logo-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: #438756;
+  }
+
+  &__title {
+    margin-left: 20px;
+    align-self: center;
+    flex-grow: 1;
+  }
+}
