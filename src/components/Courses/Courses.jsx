@@ -16,7 +16,7 @@ const Courses = () => {
   const coursesElement = courses.map((course) => (
     <Course key={course.id} {...course} />
   ));
-  console.log(courses[0]);
+
   return (
     <section className={style()}>
       <h2 className={style("title")}>Oferta kursów</h2>

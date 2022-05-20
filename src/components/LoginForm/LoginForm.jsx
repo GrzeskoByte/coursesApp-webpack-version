@@ -5,6 +5,8 @@ import { StoreContext } from "../../store/StoreProvider";
 
 import { default as LoginFormStyles } from "./LoginForm.module.scss";
 
+import request from "../../helpers/request";
+
 import Modal from "../Modal/Modal";
 
 const style = bemCssModules(LoginFormStyles);
@@ -18,6 +20,7 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
 
   const handleOnChangeLogin = ({ target: { value } }) => setLogin(value);
   const handleOnChangePassword = ({ target: { value } }) => setPassword(value);
+
   const handleOnCloseModal = (e) => {
     e.preventDefault();
     handleOnClose();
@@ -32,18 +35,17 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
-    for (const user of users) {
-      if (user.login === login && user.password === password) {
-        setUser({
-          login,
-          password,
-          authority: user?.authority,
-          courses: user.courses,
-        });
-        resetStateOfInputs();
-        handleOnClose();
-        break;
-      } else setValidateMessage("Nieprawidłowe dane logowania");
+    const { data, status } = await request.post("/users", { login, password });
+
+    console.log(data);
+
+    if (status === 200) {
+      setUser(data.user);
+      resetStateOfInputs();
+      handleOnClose();
+      console.log(status);
+    } else {
+      setValidateMessage(data.message);
     }
   };
 
