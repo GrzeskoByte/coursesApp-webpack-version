@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 import Courses from "../Courses/Courses";
 import UserCourses from "../UserCourses/UserCourses";
+import AdminPanel from "../AdminPanel/AdminPanel";
 
 import { StoreContext } from "../../store/StoreProvider";
 
@@ -18,7 +19,7 @@ const Content = () => {
   const { user } = useContext(StoreContext);
 
   const isUserLogged = Boolean(user);
-  const isAdmin = user?.authority === ADMIN_TYPE;
+  const isAdmin = user?.accessLevel === ADMIN_TYPE;
 
   return (
     <main className={style()}>
@@ -30,11 +31,7 @@ const Content = () => {
         )}
 
         {isAdmin && (
-          <Route
-            exact
-            path="/manage-courses"
-            element={<p>Zarządzanie kursami </p>}
-          />
+          <Route exact path="/manage-courses" element={<AdminPanel />} />
         )}
       </Routes>
     </main>

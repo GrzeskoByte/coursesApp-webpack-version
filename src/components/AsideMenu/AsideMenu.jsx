@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import bemCssModules from "bem-css-modules";
 
@@ -17,7 +17,7 @@ const AsideMenu = () => {
   const { user } = useContext(StoreContext);
 
   const adminMenuComponent =
-    user?.authority === ADMIN_TYPE ? <AdminMenu /> : null;
+    user?.accessLevel === ADMIN_TYPE ? <AdminMenu /> : null;
 
   return (
     <section className={style()}>

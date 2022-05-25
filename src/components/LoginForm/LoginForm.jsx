@@ -37,8 +37,6 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
 
     const { data, status } = await request.post("/users", { login, password });
 
-    console.log(data);
-
     if (status === 200) {
       setUser(data.user);
       resetStateOfInputs();
