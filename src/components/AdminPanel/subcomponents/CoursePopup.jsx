@@ -78,7 +78,7 @@ const CoursePopup = ({
 
   const authorsElements = formAuthors.map((author) => (
     <li key={author}>
-      <p>{author}</p>
+      <span>{author}</span>
       <button data-author={author} onClick={deleteAuthor}>
         Usuń
       </button>
@@ -97,20 +97,24 @@ const CoursePopup = ({
         >
           <div className={style("form-row")}>
             <label>
-              Autor:
+              <p>Autor</p>
               <input
                 type="text"
                 className={style("input")}
                 value={formAuthor}
                 onChange={handleOnChangeAuthor}
               />
-              <button onClick={addAuthor}>Dodaj autora</button>
+
+              <p>
+                <button onClick={addAuthor}>Dodaj autora</button>
+              </p>
             </label>
           </div>
 
           <div className={style("form-row")}>
             <label>
-              Adres obrazu:
+              <p> Adres obrazu</p>
+
               <input
                 type="text"
                 className={style("input")}
@@ -122,7 +126,7 @@ const CoursePopup = ({
 
           <div className={style("form-row")}>
             <label>
-              Cena:
+              <p>Cena</p>
               <input
                 type="number"
                 className={style("input")}
@@ -135,7 +139,7 @@ const CoursePopup = ({
 
           <div className={style("form-row")}>
             <label>
-              Tytuł:
+              <p>Tytuł</p>
               <input
                 type="text"
                 className={style("input")}
@@ -150,7 +154,7 @@ const CoursePopup = ({
             Anuluj
           </button>
         </form>
-        <ul>
+        <ul className={style("author-list")}>
           <p>Lista autorów</p>
           {authorsElements}
         </ul>

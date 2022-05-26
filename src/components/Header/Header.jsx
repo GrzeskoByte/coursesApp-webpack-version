@@ -28,9 +28,15 @@ const Header = () => {
 
   return (
     <header className={style()}>
-      <div className={style("logo-wrapper")} />
-      <h1 className={style("title")}>Super kursy dla programistów</h1>
+      <div className={style("logo-wrapper")}>
+        <h1 className={style("title")}>TwojeKursy.pl</h1>
+      </div>
+      <form className={style("search-form")}>
+        <input type="search" placeholder="Wyszukaj kurs dla siebie..." />
+      </form>
+
       <button onClick={handleOnClick}>{setProperlyLabel}</button>
+
       <LoginForm
         handleOnClose={handleOnClose}
         isModalOpen={isModalOpen}

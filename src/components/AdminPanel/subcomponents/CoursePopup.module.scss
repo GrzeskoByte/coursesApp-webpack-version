@@ -1,18 +1,60 @@
+@import "../../../mixins";
+
 .course-popup {
-  display: flex;
-  flex-direction: column;
+  @include center(column);
 
   &__form {
-    display: flex;
-    flex-direction: column;
+    @include center(column);
+  }
+
+  @include center(column);
+  min-height: 50vh;
+  min-width: 20vw;
+
+  &__validate-message {
+    color: #f00;
   }
 
   &__form-row {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-style: italic;
+    margin: 10px 0;
     display: flex;
+    justify-content: space-around;
+    & h3 {
+      background-color: red;
+      font-style: normal;
+      color: white;
+      padding: 15px 10px;
+      transform: translate(-25%, -50%);
+    }
+    p {
+      margin-bottom: 2px;
+    }
+
+    & input {
+      padding: 10px 5px;
+      border: none;
+      border-radius: 1px;
+      min-width: 18vw;
+      background-color: rgba(100, 100, 100, 0.192);
+    }
   }
 
-  &__input {
-    display: flex;
-    flex-grow: 1;
+  &__author-list {
+    margin-top: 10px;
+    @include center(column);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: red;
+
+    & li {
+      flex-grow: 1;
+      max-height: 40px;
+      text-transform: lowercase;
+      font-style: italic;
+      color: red;
+    }
   }
 }

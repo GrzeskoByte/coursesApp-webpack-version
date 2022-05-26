@@ -1,16 +1,49 @@
+@import "../../mixins";
+
 .login-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include center(column);
+  min-height: 50vh;
+  min-width: 20vw;
 
   &__validate-message {
     color: #f00;
   }
 
   &__row {
-    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-style: italic;
+    margin: 10px 0;
     display: flex;
     justify-content: space-around;
+    & h3 {
+      background-color: red;
+      font-style: normal;
+      color: white;
+      padding: 15px 10px;
+      transform: translate(-25%, -50%);
+    }
+    p {
+      margin-bottom: 2px;
+    }
+
+    & input {
+      padding: 10px 5px;
+      border: none;
+      border-radius: 1px;
+      min-width: 18vw;
+      background-color: rgba(100, 100, 100, 0.192);
+    }
+    span {
+      margin: 0 35px;
+      font-size: 10px;
+      & input {
+        min-width: 50px;
+      }
+
+      &:nth-of-type(2) {
+        color: red;
+      }
+    }
   }
 }

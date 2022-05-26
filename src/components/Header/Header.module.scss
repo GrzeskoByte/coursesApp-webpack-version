@@ -1,26 +1,41 @@
+@import "../../mixins";
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  background-color: #ddd;
-  border-bottom: 2px solid #000;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  @include center(row);
+  height: 10vh;
+  background-color: white;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  box-shadow: 0 3px 8px rgba(61, 59, 59, 0.1);
 
   &__logo-wrapper {
-    width: 60px;
-    height: 60px;
-    background-color: #438756;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-grow: 0.5;
+    background-color: red;
   }
 
   &__title {
     margin-left: 20px;
     align-self: center;
-    flex-grow: 1;
+    color: white;
+  }
+
+  &__search-form {
+    @include center(row);
+    flex-grow: 5;
+    & > input[type="search"] {
+      flex-grow: 0.7;
+      border-radius: 15px;
+      padding: 0 15px;
+      height: 4.5vh;
+      border: 1px solid #222;
+      background-color: rgba(221, 221, 221, 0.137);
+    }
   }
 }

@@ -67,14 +67,18 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
 
       <form className={style()} method="post" onSubmit={handleOnSubmit}>
         <div className={style("row")}>
+          <h3>Logowanie użytkownika</h3>
+        </div>
+
+        <div className={style("row")}>
           <label>
-            Login:
+            <p>Login</p>
             <input onChange={handleOnChangeLogin} type="text" value={login} />
           </label>
         </div>
         <div className={style("row")}>
           <label>
-            Hasło:
+            <p>Hasło</p>
             <input
               onChange={handleOnChangePassword}
               type="password"
@@ -82,6 +86,19 @@ const LoginForm = ({ handleOnClose, isModalOpen }) => {
             />
           </label>
         </div>
+
+        <div className={style("row")}>
+          <label>
+            <span>
+              <label for="rememberMe">
+                <input type="checkbox" />
+                Zapomniałeś hasła ?
+              </label>
+            </span>
+            <span>Zapomniałeś hasła ?</span>
+          </label>
+        </div>
+
         <div className={style("row")}>
           <label>
             <button type="submit">Zaloguj</button>

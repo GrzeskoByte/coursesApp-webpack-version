@@ -36,11 +36,15 @@ const Course = ({ authors, id, img, isUserContext = false, price, title }) => {
 
   return (
     <article className={style()}>
-      <h3 className={style("title")}>{title}</h3>
       <img src={img} alt={title} className={style("image")} />
-      <p className={style("price")}>{`Koszt kursu : ${price}zł`}</p>
-      <p className={style("authors")}>{`Autorzy kursu : ${allAuthors} `}</p>
-      {shouldBuyButton && <button onClick={handleClick}>Zakup ten kurs</button>}
+      <div className={style("container")}>
+        <h3 className={style("title")}>{title}</h3>
+        <p className={style("price")}>{`Koszt kursu : ${price}zł`}</p>
+        <p className={style("authors")}>{`Autorzy kursu : ${allAuthors} `}</p>
+        {shouldBuyButton && (
+          <button onClick={handleClick}>Zakup ten kurs</button>
+        )}
+      </div>
     </article>
   );
 };

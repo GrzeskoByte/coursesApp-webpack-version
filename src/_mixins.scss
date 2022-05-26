@@ -1,0 +1,36 @@
+@mixin default-button($fontSize) {
+  & {
+    display: inline-block;
+    margin: 10px 0px;
+    background-color: #ffffff;
+    cursor: pointer;
+    color: #000000;
+    font-family: Arial;
+    font-size: $fontSize;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-family: "Roboto", arial, sans-serif;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+@mixin center($direction) {
+  & {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+  }
+}
